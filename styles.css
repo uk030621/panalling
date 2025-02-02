@@ -1,0 +1,115 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+/* Main Container */
+.container {
+  max-width: 90%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Card Style */
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings */
+h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-top: 20px;
+  color: #555;
+}
+
+/* Input Fields */
+label {
+  display: block;
+  font-size: 14px;
+  margin: 10px 0 5px;
+  color: #555;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Button */
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Result Display */
+#result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Canvas Container */
+.canvas-container {
+  margin-top: 0px;
+  text-align: center;
+}
+
+canvas {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4px;
+}
+
+/* Mobile & Tablet Styles */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
