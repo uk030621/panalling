@@ -91,6 +91,20 @@ function drawSketch(totalDistance, numSpaces, slatWidth, spacing) {
   );
 }
 
+function resetCalculator() {
+  // Clear input fields
+  document.getElementById("distance").value = "";
+  document.getElementById("spaces").value = "";
+  document.getElementById("width").value = "";
+  document.getElementById("result").innerHTML = "";
+
+  // Clear and reset the canvas properly
+  let canvas = document.getElementById("sketchCanvas");
+
+  // Reset canvas size to force re-rendering (important fix)
+  canvas.width = canvas.width; // This clears and resets it
+}
+
 // Resize canvas when window resizes
 window.addEventListener("resize", () => {
   let totalDistance = parseFloat(document.getElementById("distance").value);
