@@ -1,11 +1,10 @@
 function calculateSpacing() {
-  // Get input values
   let totalDistance = parseFloat(document.getElementById("distance").value);
   let numSpaces = parseInt(document.getElementById("spaces").value);
   let slatWidth = parseFloat(document.getElementById("width").value);
   let resultDiv = document.getElementById("result");
+  let resetBtn = document.getElementById("resetbtn");
 
-  // Input validation
   if (
     isNaN(totalDistance) ||
     isNaN(numSpaces) ||
@@ -14,11 +13,14 @@ function calculateSpacing() {
   ) {
     resultDiv.innerHTML =
       "<span style='color: red;'>Please enter valid numbers!</span>";
+    resetBtn.style.display = "none"; // Hide reset button
     return;
   }
-
   // Calculate spacing
   let spacing = (totalDistance - (numSpaces - 1) * slatWidth) / numSpaces;
+  resultDiv.innerHTML = `Spacing between slats: <strong>${spacing.toFixed(
+    2
+  )} cm</strong>`;
 
   // Display result
   resultDiv.innerHTML = `Spacing between slats: <strong>${spacing.toFixed(
@@ -27,6 +29,8 @@ function calculateSpacing() {
 
   // Draw the updated sketch
   drawSketch(totalDistance, numSpaces + 1, slatWidth, spacing);
+
+  resetBtn.style.display = "inline-block"; // Show reset button when calculation is done
 }
 
 function drawSketch(totalDistance, numSpaces, slatWidth, spacing) {
@@ -44,7 +48,7 @@ function drawSketch(totalDistance, numSpaces, slatWidth, spacing) {
 
   // Scaling to fit within canvas
   let scale = (canvas.width - 40) / requiredWidth;
-  let slatHeight = 50;
+  let slatHeight = 50; // Same height for slats and spaces
 
   // Draw slats and spacing dynamically
   let x = 20; // Start position
@@ -63,7 +67,7 @@ function drawSketch(totalDistance, numSpaces, slatWidth, spacing) {
     // Draw spacing (if not the last one)
     if (i < numSpaces - 1) {
       ctx.fillStyle = "#FF0000";
-      ctx.fillRect(x, 90, spacing * scale, 20);
+      ctx.fillRect(x, 75, spacing * scale, slatHeight); // ✅ Equal height to slats
       x += spacing * scale;
     }
   }
@@ -79,8 +83,7 @@ function drawSketch(totalDistance, numSpaces, slatWidth, spacing) {
   // Add labels
   ctx.fillStyle = "black";
   ctx.font = "12px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText(`Total Inside Edge Distance: ${totalDistance} cm`, 20, 20);
+  ctx.fillText(`Total Inside Edge Distance: ${totalDistance} cm`, 20, 30);
   ctx.fillStyle = "#007BFF";
   ctx.fillText(`Each Slat: ${slatWidth} cm`, 20, 60);
   ctx.fillStyle = "#FF0000";
@@ -92,17 +95,14 @@ function drawSketch(totalDistance, numSpaces, slatWidth, spacing) {
 }
 
 function resetCalculator() {
-  // Clear input fields
   document.getElementById("distance").value = "";
   document.getElementById("spaces").value = "";
   document.getElementById("width").value = "";
   document.getElementById("result").innerHTML = "";
+  document.getElementById("resetbtn").style.display = "none"; // Hide reset button
 
-  // Clear and reset the canvas properly
   let canvas = document.getElementById("sketchCanvas");
-
-  // Reset canvas size to force re-rendering (important fix)
-  canvas.width = canvas.width; // This clears and resets it
+  canvas.width = canvas.width; // Clear canvas
 }
 
 // Resize canvas when window resizes

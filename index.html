@@ -11,41 +11,32 @@
       <h2>Slat Spacing Calculator</h2>
       <div class="card">
         <label for="distance"
-          >Distance Between Inside Edges of End Slats (cm):</label
+          >Span Between Inside Edges of End Slats (cm):</label
         >
-        <input
-          type="number"
-          id="distance"
-          placeholder="Enter total distance"
-          required
-        />
+        <input type="number" id="distance" placeholder="Total Span" required />
 
         <label for="spaces">Number of Spaces Between Slats:</label>
         <input
           type="number"
           id="spaces"
-          placeholder="Enter number of spaces"
+          placeholder="Number of Spaces"
           required
         />
 
         <label for="width">Slat Width (cm):</label>
-        <input
-          type="number"
-          id="width"
-          placeholder="Enter slat width"
-          required
-        />
+        <input type="number" id="width" placeholder="Slat Width" required />
 
-        <button onclick="calculateSpacing()">Calculate</button>
+        <div class="button-container">
+          <button onclick="calculateSpacing()">Calculate</button>
+          <button id="resetbtn" onclick="resetCalculator()">Reset</button>
+        </div>
 
         <div id="result"></div>
       </div>
 
-      <button id="resetbtn" onclick="resetCalculator()">Reset</button>
-
       <!-- Responsive Canvas for Sketch -->
       <div class="canvas-container">
-        <h3>Dimensioned Sketch</h3>
+        <h3 id="sketchText">Dimensioned Sketch</h3>
         <canvas id="sketchCanvas"></canvas>
       </div>
     </div>

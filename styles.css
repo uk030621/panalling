@@ -10,6 +10,7 @@
 .container {
   max-width: 90%;
   margin: 30px auto;
+  margin-top: 5px;
   text-align: center;
 }
 
@@ -23,12 +24,12 @@
 
 /* Headings */
 h2 {
-  color: #333;
-  margin-bottom: 15px;
+  color: #000;
+  margin-bottom: 10px;
 }
 
 h3 {
-  margin-top: 20px;
+  margin-top: 10px;
   color: #555;
 }
 
@@ -39,6 +40,7 @@ label {
   margin: 10px 0 5px;
   color: #555;
   text-align: left;
+  color: #000;
 }
 
 input {
@@ -56,6 +58,7 @@ button {
   color: white;
   border: none;
   padding: 12px;
+  padding-top: 5px;
   width: fit-content;
   cursor: pointer;
   border-radius: 5px;
@@ -70,15 +73,27 @@ button:hover {
 button#resetbtn {
   background-color: #333;
   width: fit-content;
-  margin-top: 20px;
+  display: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px;
+}
+
+h3#sketchText {
+  font-size: medium;
+  color: #000;
 }
 
 /* Result Display */
 #result {
   margin-top: 15px;
-  font-size: 18px;
+  font-size: medium;
   font-weight: bold;
-  color: #333;
+  color: #f30909;
 }
 
 /* Canvas Container */
